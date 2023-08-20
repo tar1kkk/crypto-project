@@ -33,4 +33,9 @@ const itemsSlice = createSlice({
         },
     }
 
-})
+});
+
+export const {setItems}= itemsSlice.reducer;
+
+
+export default itemsSlice.reducer;
