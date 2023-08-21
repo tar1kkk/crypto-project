@@ -1,8 +1,13 @@
 import React from 'react';
+import Hero from "../components/Hero";
+import MarketUpdate from "../components/MarketUpdates";
 
-function Home(props) {
+function Home() {
     return (
-        <div>Home</div>
+        <>
+            <Hero/>
+            <MarketUpdate/>
+        </>
     );
 }
 

@@ -2,40 +2,40 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
 
 
-export const fetchItems = createAsyncThunk('items/fetch',async (params)=>{
-    const {data} = axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=4&page=1&sparkline=false`);
+export const fetchItems = createAsyncThunk('items/fetch', async (params) => {
+    const {quantity} = params;
+    const {data} = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${quantity}&page=1&sparkline=false`);
     return data;
-})
-
+});
 
 const initialState = {
-    items : [],
-    status : 'loading',
+    items: [],
+    status: 'loading',
 }
 
 const itemsSlice = createSlice({
-    name : 'items',
+    name: 'items',
     initialState,
-    reducers : {
-        setItems(state,action){
+    reducers: {
+        setItems(state, action) {
             state.items = action.payload;
         },
-    },extraReducers : {
-        [fetchItems.fulfilled](state,action){
+    }, extraReducers: {
+        [fetchItems.fulfilled](state, action) {
             state.items = action.payload;
             state.status = 'success';
         },
-        [fetchItems.pending](state,action){
+        [fetchItems.pending](state, action) {
             state.status = 'loading';
         },
-        [fetchItems.rejected](state,action){
+        [fetchItems.rejected](state, action) {
             state.status = 'rejected';
         },
     }
 
 });
 
-export const {setItems}= itemsSlice.reducer;
+export const {setItems} = itemsSlice.reducer;
 
 
 export default itemsSlice.reducer;

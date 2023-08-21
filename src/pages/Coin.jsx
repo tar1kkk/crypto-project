@@ -2,7 +2,7 @@ import React from 'react';
 
 function Coin(props) {
     return (
-        <div>coin</div>
+        <div style={{color: 'black', fontSize: '30px'}}>coin</div>
     );
 }
 

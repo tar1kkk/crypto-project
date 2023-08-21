@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState} from "react";
 import {Link} from "react-router-dom";
 
 
@@ -18,8 +18,7 @@ function Navbar() {
 
     const goTop = () => {
         window.scrollTo({
-            top: (0, 0),
-            behavior: "smooth",
+            top: (0, 0), behavior: "smooth",
         });
     };
 
@@ -27,8 +26,7 @@ function Navbar() {
         setMobile(!mobile);
     };
 
-    return (
-        <>
+    return (<>
             <nav className={sticky ? "sticky-nav" : ""}>
                 <div className="navbar">
                     <Link to="/">
@@ -78,8 +76,7 @@ function Navbar() {
                     </li>
                 </ul>
             </div>
-        </>
-    );
+        </>);
 }
 
 export default Navbar;
