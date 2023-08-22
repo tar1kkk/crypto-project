@@ -9,9 +9,7 @@ function App() {
             <Navbar/>
             <Routes>
                 <Route path='/' element={<Home/>}/>
-                <Route path='/coin' element={<Coin/>}>
-                    <Route path='/coin/:id' element={<Coin/>}/>
-                </Route>
+                <Route path='/coin/:id' element={<Coin/>}/>
             </Routes>
         </>
     );
