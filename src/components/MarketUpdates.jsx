@@ -2,24 +2,27 @@ import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchItems} from "../redux/slices/itemsSlice";
+import axios from "axios";
 
 function MarketUpdate() {
     const dispatch = useDispatch();
-    const {items, status} = useSelector(state => state.itemsSlice);
-    const [currentPage, setCurrentPage] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [items, setItems] = useState([]);
+    const [isLoading,setIsLoading] = useState(true);
     const paginationButtons = [];
-    const quantity = 4;
+    const quantity = 10;
 
 
     async function fetchData() {
-        await dispatch(fetchItems({
-            quantity,
-        }))
+        setIsLoading(true);
+        const {data} = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${quantity}&page=${currentPage}&sparkline=false`);
+        setItems(data);
+        setIsLoading(false);
     }
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [currentPage]);
     for (let i = 1; i <= 5; i++) {
         paginationButtons.push(
             <button
@@ -61,10 +64,10 @@ function MarketUpdate() {
                                 <p>Market Cap</p>
                             </div>
                             <div
-                                // onLoad={() => setApiLoad(false)}
+                                onLoad={() => setIsLoading(false)}
                                 className="market-content__coin-list__row"
                             >
-                                {/*{status === 'loading' ? <span className="loader"></span>: ''}*/}
+                                {isLoading && <span className="loader"></span>}
                                 {items.map((item) => (
                                     <Link
                                         onClick={scrollTop}

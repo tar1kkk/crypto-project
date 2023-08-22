@@ -792,7 +792,7 @@ footer {
   display: flex;
   gap: 3rem;
   color: #f3f2f4;
-  font-size: 4rem;
+  font-size: 2rem;
 }
 .footer-content__socials i {
   cursor: pointer;
