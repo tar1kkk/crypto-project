@@ -8,7 +8,7 @@ function MarketUpdate() {
     const dispatch = useDispatch();
     const [currentPage, setCurrentPage] = useState(1);
     const [items, setItems] = useState([]);
-    const [isLoading,setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
     const paginationButtons = [];
     const quantity = 10;
 
