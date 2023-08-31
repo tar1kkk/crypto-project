@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
 import DOMPurify from "dompurify";
 import axios from "axios";
+import Navbar from "../components/Navbar";
 
 function Coin() {
-    const { id } = useParams();
+    const {id} = useParams();
     const [coin, setCoin] = useState({});
     const [loadCoin, setLoadCoin] = useState(true);
 
@@ -32,12 +33,13 @@ function Coin() {
 
     return (
         <>
+            <Navbar/>
             <section className="coin-page">
                 <div className="container">
                     <div onLoad={() => setLoadCoin(false)} className="coin-content">
                         <div className="coin-content__img-side">
                             {loadCoin && <span className="loader"></span>}
-                            {coin.image ? <img src={coin.image.large} alt={coin.id} /> : null}
+                            {coin.image ? <img src={coin.image.large} alt={coin.id}/> : null}
                             <h2>{coin.name}</h2>
                             <p>Rank: #{coin.coingecko_rank}</p>
                         </div>

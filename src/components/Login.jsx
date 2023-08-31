@@ -25,7 +25,7 @@ function Login() {
     }
     return (
         <Form
-            title='sign in'
+            title='Sign In'
             handleClick={handleLogin}
         />
     );

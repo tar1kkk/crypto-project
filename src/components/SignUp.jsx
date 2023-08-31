@@ -24,7 +24,7 @@ function SignUp() {
     }
 
     return (
-        <Form title='register' handleClick={handleRegister}/>
+        <Form title='Register' handleClick={handleRegister}/>
     );
 }
 

@@ -5,24 +5,28 @@ const Form = ({title, handleClick}) => {
     const [pass, setPass] = useState('');
 
     return (
-        <div>
+        <div className='form-box'>
             <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="email"
+                placeholder="Email"
             />
             <input
                 type="password"
                 value={pass}
                 onChange={(e) => setPass(e.target.value)}
-                placeholder="password"
+                placeholder="Password"
             />
-            <button
-                onClick={() => handleClick(email, pass)}
-            >
-                {title}
-            </button>
+            <div className='button-form-div'>
+                <button
+                    style={{marginBottom: '15px', marginTop: '15px'}}
+                    className='button-form'
+                    onClick={() => handleClick(email, pass)}
+                >
+                    {title}
+                </button>
+            </div>
         </div>
     )
 }
