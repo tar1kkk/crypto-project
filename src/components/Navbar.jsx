@@ -56,8 +56,9 @@ function Navbar() {
                 <span>
                         {isAuth
                             ? <div style={{display: 'flex'}}>
-                                <p style={{fontSize: 15,marginRight : '10px'}}>{email}</p>
-                                <FontAwesomeIcon icon={faRightFromBracket} onClick={()=> dispatch(removeUser())} shake size="l" style={{color: "#ffffff",cursor : 'pointer'}} />
+                                <p style={{fontSize: 14.5, marginRight: '10px'}}>{email}</p>
+                                <FontAwesomeIcon icon={faRightFromBracket} onClick={() => dispatch(removeUser())} shake
+                                                 size="l" style={{color: "#ffffff", cursor: 'pointer'}}/>
                             </div>
                             : <div>
                                 <Link to={'/login'}>
