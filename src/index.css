@@ -916,7 +916,7 @@ footer {
 .coin-page {
     background-image: linear-gradient(to top, #0f051d 30%, #130749 70%);
     width: 100%;
-    height: 100vh;
+    height: 100%;
 }
 
 @media (max-width: 1000px) {
@@ -1086,6 +1086,19 @@ footer {
 
 .default-section {
     display: flex;
-    justify-content: center; /*Центрирование по горизонтали*/
+    justify-content: center;
     align-items: center;
+}
+.coin-tickers{
+    color: white;
+    font-size: 14px;
+    display: block;
+}
+.coin-p{
+    margin-left: 10px;
+    display: flex;
+}
+.coin-p p {
+    margin-left: 10px;
+    margin-right: 10px;
 }

@@ -7,14 +7,16 @@ import Navbar from "../components/Navbar";
 function Coin() {
     const {id} = useParams();
     const [coin, setCoin] = useState({});
+    const [data, setData] = useState([])
     const [loadCoin, setLoadCoin] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const {data} = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}`);
-
+                console.log(data);
                 setCoin(data);
+                setData(data);
             } catch (error) {
                 console.error(error);
             }
@@ -26,9 +28,6 @@ function Coin() {
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
-
-    // console.log(coin);
-
     const h24 = coin.market_data ? coin.market_data.price_change_24h : "";
 
     return (
@@ -84,6 +83,13 @@ function Coin() {
                         </div>
                     </div>
                 </div>
+                {/*<div className='coin-tickers'>*/}
+                {/*    {data.tickers && Array.isArray(data.tickers) && data.tickers.slice(0, 5).map((item) => (*/}
+                {/*        <div className='coin-p'>*/}
+                {/*            <p>{item.base}</p> to <p>{item.target}</p>*/}
+                {/*        </div>*/}
+                {/*    ))}*/}
+                {/*</div>*/}
             </section>
         </>
     );

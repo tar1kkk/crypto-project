@@ -3,6 +3,8 @@ import {Link} from "react-router-dom";
 import {useAuth} from "../hooks/use-auth";
 import {removeUser} from "../redux/slices/userSlice";
 import {useDispatch} from "react-redux";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faRightFromBracket} from "@fortawesome/free-solid-svg-icons";
 
 
 function Navbar() {
@@ -53,9 +55,10 @@ function Navbar() {
                 </ul>
                 <span>
                         {isAuth
-                            ? <div>
-                                <p style={{fontSize: 15}}>{email}</p>
-                                <p onClick={() => dispatch(removeUser())}>Exit</p></div>
+                            ? <div style={{display: 'flex'}}>
+                                <p style={{fontSize: 15,marginRight : '10px'}}>{email}</p>
+                                <FontAwesomeIcon icon={faRightFromBracket} onClick={()=> dispatch(removeUser())} shake size="l" style={{color: "#ffffff",cursor : 'pointer'}} />
+                            </div>
                             : <div>
                                 <Link to={'/login'}>
                                     <button className='btn-signup'>Sign Up</button>

@@ -1,9 +1,9 @@
 import React from 'react';
 import {useDispatch} from "react-redux";
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
-import Form from "./Form";
 import {setUser} from "../redux/slices/userSlice";
 import {useNavigate} from "react-router-dom";
+import MyForm from "./MyForm";
 
 function Login() {
     const navigate = useNavigate();
@@ -24,7 +24,7 @@ function Login() {
             });
     }
     return (
-        <Form
+        <MyForm
             title='Sign In'
             handleClick={handleLogin}
         />

@@ -1,6 +1,6 @@
 import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 import React from 'react';
-import Form from "./Form";
+import MyForm from "./MyForm";
 import {useDispatch} from "react-redux";
 import {setUser} from "../redux/slices/userSlice";
 import {useNavigate} from "react-router-dom";
@@ -24,7 +24,7 @@ function SignUp() {
     }
 
     return (
-        <Form title='Register' handleClick={handleRegister}/>
+        <MyForm title='Register' handleClick={handleRegister}/>
     );
 }
 

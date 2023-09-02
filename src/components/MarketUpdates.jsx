@@ -57,7 +57,7 @@ function MarketUpdate() {
                     <div className="market-content">
                         <h2>Market Update</h2>
                         <div className="market-content__coin-list">
-                            <div className="market-content__coin-list__top">
+              v              <div className="market-content__coin-list__top">
                                 <p>Coin</p>
                                 <p>Price</p>
                                 <p>24h Change</p>
