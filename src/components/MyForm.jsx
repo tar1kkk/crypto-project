@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 
 
 const MyForm = ({title, handleClick}) => {
+
     const validationSchema = Yup.object().shape({
         email: Yup.string().email('Некорректный email').required('Email обязателен'),
         password: Yup.string().min(6, 'Пароль должен содержать минимум 6 символов').required('Пароль обязателен'),
